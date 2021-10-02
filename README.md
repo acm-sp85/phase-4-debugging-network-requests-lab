@@ -62,12 +62,13 @@ developing your own process.
 
 - Add a new toy when the toy form is submitted
 
-  - How I debugged:
+  - How I debugged: Tried to add a new toy and noticed I was getting Error 500, checked on Network connections to see there was an internal server error.
+    Checking on the terminal I see NameError (uninitialized constant ToysController::Toys) in the Toy's controller. In line 10 the model Toy was misspelled as Toys when creating a new instance. SOLVED!
 
 - Update the number of likes for a toy
 
-  - How I debugged:
+  - How I debugged: Checked on Terminal and on Network - Headers that the problem was a 204 No content. That usually is cause the server is not returning the expected JSON when updating via fetch (patch). Problem solved just by rendering a json with our toy and sending a status 200.
 
 - Donate a toy to Goodwill (and delete it from our database)
 
-  - How I debugged:
+  - How I debugged: It was giving us a status 404, easily solved by adding the route for our destroy method by adding it to our resources.
